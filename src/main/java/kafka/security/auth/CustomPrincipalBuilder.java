@@ -65,7 +65,7 @@ public class CustomPrincipalBuilder implements PrincipalBuilder {
 
             return layer.peerPrincipal();
         } catch (Exception e) {
-            throw new KafkaException("Failed to build principal due to: ", e);
+            throw new KafkaException(e);
         }
     }
 
