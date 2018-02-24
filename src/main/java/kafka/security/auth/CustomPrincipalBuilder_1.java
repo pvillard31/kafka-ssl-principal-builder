@@ -63,18 +63,16 @@ public class CustomPrincipalBuilder_1 implements KafkaPrincipalBuilder {
     private KerberosShortNamer kerberosShortNamer;
 
     public CustomPrincipalBuilder_1() {
-        if(dnPattern == null || dnValue == null) {
-            try {
-                Properties prop = new Properties();
-                prop.load(new FileInputStream(KAFKA_CONF));
-                dnPattern = Pattern.compile(prop.getProperty("kafka.security.identity.mapping.pattern.dn"));
-                dnValue = prop.getProperty("kafka.security.identity.mapping.value.dn");
+        try {
+            Properties prop = new Properties();
+            prop.load(new FileInputStream(KAFKA_CONF));
+            dnPattern = Pattern.compile(prop.getProperty("kafka.security.identity.mapping.pattern.dn"));
+            dnValue = prop.getProperty("kafka.security.identity.mapping.value.dn");
 
-                List<String> principalToLocalRules = Arrays.asList(prop.getProperty(BrokerSecurityConfigs.SASL_KERBEROS_PRINCIPAL_TO_LOCAL_RULES_CONFIG).split(","));
-                kerberosShortNamer = KerberosShortNamer.fromUnparsedRules(defaultRealm(), principalToLocalRules);
-            } catch (Exception e) {
-                // nothing to do
-            }
+            List<String> principalToLocalRules = Arrays.asList(prop.getProperty(BrokerSecurityConfigs.SASL_KERBEROS_PRINCIPAL_TO_LOCAL_RULES_CONFIG).split(","));
+            kerberosShortNamer = KerberosShortNamer.fromUnparsedRules(defaultRealm(), principalToLocalRules);
+        } catch (Exception e) {
+            // nothing to do
         }
     }
 
