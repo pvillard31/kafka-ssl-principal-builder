@@ -21,6 +21,8 @@ kafka.security.identity.mapping.value.dn=$1
 ssl.client.auth=required
 ````
 
+If you don't want to use the CN of the subject as the username, see below explanations.
+
 ### Explanations
 
 *Note:* with Kafka 1.0+, the implementation changed a bit. Even though this code remains valid, there is a new interface that is much easier to implement (https://cwiki.apache.org/confluence/display/KAFKA/KIP-189%3A+Improve+principal+builder+interface+and+add+support+for+SASL) and which also provides the possibility to implement the principal builder when using SASL. For a Kafka 1.x version of this code, have a look on [this branch](https://github.com/pvillard31/kafka-ssl-principal-builder/tree/kafka_1.x).
