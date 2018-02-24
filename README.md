@@ -23,7 +23,7 @@ ssl.client.auth=required
 
 ### Explanations
 
-*Note:* with Kafka 1.0+, the implementation changed a bit. Even though this code should remain valid, there is a new interface that is much easier to implement (https://cwiki.apache.org/confluence/display/KAFKA/KIP-189%3A+Improve+principal+builder+interface+and+add+support+for+SASL) and it also provides the possibility to implement the principal builder when using SASL. For a Kafka 1.x version, have a look on [this branch](https://github.com/pvillard31/kafka-ssl-principal-builder/tree/kafka_1.x).
+*Note:* with Kafka 1.0+, the implementation changed a bit. Even though this code remains valid, there is a new interface that is much easier to implement (https://cwiki.apache.org/confluence/display/KAFKA/KIP-189%3A+Improve+principal+builder+interface+and+add+support+for+SASL) and which also provides the possibility to implement the principal builder when using SASL. For a Kafka 1.x version of this code, have a look on [this branch](https://github.com/pvillard31/kafka-ssl-principal-builder/tree/kafka_1.x).
 
 The motivation behind this code is the following: some producers/consumers might not be able to use Kerberos to authenticate against Kafka brokers and, consequently, you can't use SASL\_PLAINTEXT or SASL\_SSL. Since PLAINTEXT is not an option (for obvious security reasons), it remains SSL.
 
