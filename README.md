@@ -1,3 +1,5 @@
+# Starting with Kafka 2.2, this can be directly set in the configuration file! See [KIP-371](https://cwiki.apache.org/confluence/display/KAFKA/KIP-371%3A+Add+a+configuration+to+build+custom+SSL+principal+name).
+
 # Kafka SSL - Principal Builder
 
 For a Kafka 1.x version, have a look on [this branch](https://github.com/pvillard31/kafka-ssl-principal-builder/tree/kafka_1.x).
